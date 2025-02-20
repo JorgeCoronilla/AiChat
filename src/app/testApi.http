@@ -1,0 +1,16 @@
+### Generate Text with Ollama API
+POST http://localhost:11434/api/generate
+Content-Type: application/json
+
+{
+  "model": "deepseek-r1:8b",
+  "prompt": "Hello, how are you?",
+  "stream": false
+}
+
+
+### Ollama status
+GET http://localhost:11434/
+
+### Generate list of installed models
+GET http://localhost:11434/api/tags
