@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 import { useEffect, useRef } from 'react';
 
 import dynamic from 'next/dynamic';
@@ -20,16 +20,21 @@ interface ChatBoxProps {
 export default function ChatBox({ messages }: ChatBoxProps) {
   const chatRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    if (chatRef.current) {
+    if (chatRef.current) {      
       chatRef.current.scrollTop = chatRef.current.scrollHeight;
     }
   }, [messages]);
+
+  
+
+
+
   return (
     <div className={styles.chatBox}>
       <div ref={chatRef}>
         {messages.map((msg, index) => (
           <div key={index} className={`${styles.message} ${msg.role}`}>
-            <p className={`${styles.name} ${msg.role === 'user' ? styles.you : styles.model}`}>
+            <p className={`${styles.name} ${msg.role === 'user' ? styles.you : styles.model}`} >
               {msg.role === 'user' ? 'You' : 'DeepShit'}:
             </p>
             <ReactMarkdown
@@ -53,13 +58,13 @@ export default function ChatBox({ messages }: ChatBoxProps) {
                     </code>
                   ) : (
                     <div className={styles.codeContainer}>
-                      <p>{match ? match[1] : 'javascript'}</p>
+                      <div>{match ? match[1] : 'javascript'}</div>
                       <SyntaxHighlighter
                         style={coy}
                         language={match ? match[1] : 'javascript'}
                         PreTag="div"
                         showLineNumbers
-                        className={styles.codeBlock} 
+                        className={styles.codeBlock}
                       >
                         {String(children).replace(/\n$/, '')} {}
                       </SyntaxHighlighter>

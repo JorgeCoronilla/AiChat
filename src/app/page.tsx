@@ -5,6 +5,7 @@ import ChatBox from './components/ChatBox';
 import ModelSelector from './components/ModelSelector';
 import Header from './components/Header';
 import Form from './components/Form';
+import ThemeSwitcher from './components/ThemeSwitcher';
 
 const Home: React.FC = () => {
   const [modelName, setModelName] = useState<string>('');
@@ -17,6 +18,7 @@ const Home: React.FC = () => {
       <Header />
       <main className={styles.main}>
         <ModelSelector modelName={modelName} setModelName={setModelName} />
+        <ThemeSwitcher />
         <ChatBox messages={messages} />
         <Form
           modelName={modelName}
