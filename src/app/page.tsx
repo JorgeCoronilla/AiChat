@@ -11,7 +11,11 @@ const Home: React.FC = () => {
   const [modelName, setModelName] = useState<string>('');
   const [messages, setMessages] = useState<
     Array<{ role: string; content: string; think?: string }>
-  >([]);
+  >([{
+    role: 'model',
+    content: "Hola, soy DeepShit, un modelo de lenguaje entrenado por Jorge. ¿En qué puedo ayudarte hoy?"
+   
+  }]);
 
   return (
     <div className={styles.container}>

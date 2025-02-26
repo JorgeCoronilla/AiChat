@@ -5,8 +5,8 @@ import dynamic from 'next/dynamic';
 
 import remarkGfm from 'remark-gfm';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'; 
-import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism'; 
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 import styles from '../page.module.css';
 const ReactMarkdown = dynamic(() => import('react-markdown'), { ssr: false });
@@ -28,7 +28,7 @@ export default function ChatBox({ messages }: ChatBoxProps) {
       setIsDarkMode(document.body.classList.contains('dark-mode'));
     };
 
-    updateTheme(); 
+    updateTheme();
     const observer = new MutationObserver(updateTheme);
     observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
 
@@ -45,10 +45,8 @@ export default function ChatBox({ messages }: ChatBoxProps) {
     <div className={styles.chatBox}>
       <div ref={chatRef}>
         {messages.map((msg, index) => (
-          <div key={index} className={`${styles.message} ${msg.role}`}>
-            <p className={`${styles.name} ${msg.role === 'user' ? styles.you : styles.model}`}>
-              {msg.role === 'user' ? 'You' : 'DeepShit'}:
-            </p>
+          <div key={index} className={`${styles.message} ${styles[msg.role]}`}>
+            {msg.role !== 'user' && <p className={` ${styles.model}`}>DS</p>}
             <ReactMarkdown
               className={styles.markdown}
               remarkPlugins={[remarkGfm]}

@@ -52,7 +52,7 @@
     position: relative;
     color: var(--message-color);
     text-align: left;
-    padding: 20px;
+    padding: 20px 20px 20px 35px;
     margin: 0 auto;
     max-width: 1000px;
     height: 65dvh;
@@ -99,25 +99,37 @@
   margin: 0;
   padding: 10px;
   border-radius: var(--border-radius);
-  font-size: 1.2em;
-  .name {
-    font-weight: 700;
-  }
-  .you {
-    color: var(--user-name);
-  }
+  font-size: var(--font-size-m);
+  font-weight: 400;
+  line-height: 1.4;
 
   .model {
-    color: var(--model-name);
-  }
+    position: relative;
+    top: 22px;
+    left: -35px;
+    border-radius: 100px;
+    background-color: var(--model-name);
+    color: var(--background);
+    width: fit-content;
+    padding: 5px 5px;
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    align-self: flex-end;
+    }
 }
-
-.message.user {
+.message > *:not(:first-child){
+  margin-bottom: 10px;
+}
+.user {
+  background-color: var(--prompt-background);
+  text-align: right;
+  width: fit-content; 
   align-self: flex-end;
-}
-
-.message.assistant {
-  align-self: flex-start;
+  margin-left: auto;
+  margin-right: 0;
+  margin-top: 20px;
+  max-width: 80%;
+  padding: 8px;
 }
 
 .form {
@@ -167,7 +179,8 @@
   margin-bottom: 5px;
 }
 .codeContainer {
-  background-color: rgb(13, 35, 52);
+  background-color: var(--foreground);
+  color: var(--background);
   padding-top: 10px;
   border-radius: var(--border-radius) !important;
   margin-top: 10px;
@@ -179,6 +192,7 @@
   margin-top: 10px;
   border-bottom-right-radius: 5px !important;
   border-bottom-left-radius: 5px !important;
+  border: var(--border);
 
   & code {
     padding-top: 30px !important;
