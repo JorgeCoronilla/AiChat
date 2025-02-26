@@ -17,7 +17,7 @@ export default function Form({ modelName, setModelName, messages, setMessages }:
   const [input, setInput] = useState<string>('');
 
   const handleSubmit = async (event: React.FormEvent) => {
-    setModelName('dolphin-llama3');
+  
     event.preventDefault();
     if (!input.trim()) return;
 

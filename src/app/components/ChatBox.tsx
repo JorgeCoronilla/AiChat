@@ -52,13 +52,14 @@ export default function ChatBox({ messages }: ChatBoxProps) {
                       {children}
                     </code>
                   ) : (
-                    <div>
+                    <div className={styles.codeContainer}>
+                      <p>{match ? match[1] : 'javascript'}</p>
                       <SyntaxHighlighter
                         style={coy}
                         language={match ? match[1] : 'javascript'}
                         PreTag="div"
                         showLineNumbers
-                        className={styles.codeBlock} // Add this class
+                        className={styles.codeBlock} 
                       >
                         {String(children).replace(/\n$/, '')} {}
                       </SyntaxHighlighter>

@@ -4,7 +4,7 @@ export const getModelResponse = async (
   modelName: string,
   onData: (data: string) => void
 ) => {
-  console.log(prompt, modelName);
+  console.log("Lo que llega",prompt, modelName);
     try {
       const response = await fetch(`${API_URL}/api/generate`, {
         method: 'POST',
