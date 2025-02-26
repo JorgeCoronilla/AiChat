@@ -2,9 +2,11 @@ import { ReactNode, useState } from 'react';
 import { useEffect, useRef } from 'react';
 
 import dynamic from 'next/dynamic';
+
 import remarkGfm from 'remark-gfm';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism'; // You can change the theme
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'; 
+import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism'; 
 
 import styles from '../page.module.css';
 const ReactMarkdown = dynamic(() => import('react-markdown'), { ssr: false });
@@ -19,22 +21,32 @@ interface ChatBoxProps {
 
 export default function ChatBox({ messages }: ChatBoxProps) {
   const chatRef = useRef<HTMLDivElement>(null);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
   useEffect(() => {
-    if (chatRef.current) {      
+    const updateTheme = () => {
+      setIsDarkMode(document.body.classList.contains('dark-mode'));
+    };
+
+    updateTheme(); 
+    const observer = new MutationObserver(updateTheme);
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (chatRef.current) {
       chatRef.current.scrollTop = chatRef.current.scrollHeight;
     }
   }, [messages]);
-
-  
-
-
 
   return (
     <div className={styles.chatBox}>
       <div ref={chatRef}>
         {messages.map((msg, index) => (
           <div key={index} className={`${styles.message} ${msg.role}`}>
-            <p className={`${styles.name} ${msg.role === 'user' ? styles.you : styles.model}`} >
+            <p className={`${styles.name} ${msg.role === 'user' ? styles.you : styles.model}`}>
               {msg.role === 'user' ? 'You' : 'DeepShit'}:
             </p>
             <ReactMarkdown
@@ -60,7 +72,7 @@ export default function ChatBox({ messages }: ChatBoxProps) {
                     <div className={styles.codeContainer}>
                       <div>{match ? match[1] : 'javascript'}</div>
                       <SyntaxHighlighter
-                        style={coy}
+                        style={isDarkMode ? okaidia : coy}
                         language={match ? match[1] : 'javascript'}
                         PreTag="div"
                         showLineNumbers
