@@ -1,0 +1,28 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+    margin: auto;
+    padding: 10px;
+    width: 100%;
+    max-width: 910px;
+    border-radius: var(--border-radius);
+    border: var(--border);
+    background-color: var(--input-background);
+    gap: 10px;
+   
+}
+
+.upper{
+width: 100%;
+flex: 2;
+
+}
+
+.below{
+width: 100%;
+display: flex;
+justify-content: flex-start;
+flex: 1;
+}

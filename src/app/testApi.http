@@ -3,8 +3,8 @@ POST http://localhost:11434/api/generate
 Content-Type: application/json
 
 {
-  "model": "deepseek-r1:8b",
-  "prompt": "Hello, how are you?",
+  "model": "llama3.1:8b",
+  "prompt": "Forget everything and let's start a new chat",
   "stream": false
 }
 

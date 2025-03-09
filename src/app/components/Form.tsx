@@ -37,6 +37,7 @@ export default function Form({ modelName, setModelName, messages, setMessages }:
 
           try {
             parsedData = JSON.parse(data);
+            console.log(parsedData)
           } catch {
             console.log('error', data);
           }

@@ -15,7 +15,7 @@
   --gradient-3: #00bfff;
 
   --chatBox-background: var(--background);
-
+  --chatBox-color: var(--foreground);
   --chatBox-border: var(--border);
   --chatBox-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   --user-name: #f577b6;
@@ -39,7 +39,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #282c34;
+    /* --background: #282c34;
     --foreground: #ededed;
 
     --border: 1px solid #a59ebc;
@@ -67,7 +67,36 @@
   --model-name: #819cf6;
   --message-color: #e6e6e6;
 
-  --md-bold: #ffbe82;
+  --md-bold: #ffbe82; */
+  --background: #1e1e2e; /* Darker, less bluish tone for better contrast */
+  --foreground: #e4e4e7; /* Slightly warmer white for readability */
+
+  --border: 1px solid #5a5a72; /* Softer border color */
+
+  --input-background: #2a2a3a; /* Darker input field to blend with theme */
+  --button-background: #7a6ea6; /* More muted purple */
+  --button-color: #ffffff;
+  --button-background-hover: #c24040; /* Deeper red for contrast */
+  --button-placeholder: #b0b0b0; /* Lighter placeholder for readability */
+
+  --gradient-1: #ff4081; /* Brighter pink for dark mode */
+  --gradient-2: #8a2be2; /* More vivid purple */
+  --gradient-3: #00bfff; /* Keep this blue for contrast */
+
+  --chatBox-background: #1e1e2e; /* Slightly softer dark */
+  --chatBox-border: var(--border);
+  --chatBox-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Deeper shadow for depth */
+
+  --user-name: #ff86c6; /* Slightly brighter pink */
+  --model-name: #9db2ff; /* Slightly lighter blue for contrast */
+  --message-color: #eaeaea; /* Less harsh white for text readability */
+  --prompt-background: #272626;
+  --md-bold: #ffcc99; /* Warmer accent color for markdown bold */
+
+  --chatBox-background-fade-bottom: rgba(35, 35, 50, 0) 0%, rgba(35, 35, 50, 1) 5%, rgba(35, 35, 50, 1) 95%, rgba(35, 35, 50, 0) 100%;
+
+  --chatBox-background-fade-top: rgba(35, 35, 50, 0) 0%, rgba(35, 35, 50, 1) 5%, rgba(35, 35, 50, 1) 98%, rgba(35, 35, 50, 0) 100%;
+
   }
 }
 /* Dark theme */
@@ -77,7 +106,7 @@ body.dark-mode {
 
   --border: 1px solid #a59ebc;
   
-  --input-background: #e8e8e8;
+  --input-background: #353535;
   --button-background: #a59ebc;
   --button-color: #ffffff;
   --button-background-hover: #d95252;
@@ -87,13 +116,14 @@ body.dark-mode {
   --gradient-2: #7700ff;
   --gradient-3: #00bfff;
 
-  --chatBox-background: rgb(51, 65, 77);
+  --chatBox-background: #282c34; /* Slightly softer dark */
 
   --chatBox-border: var(--border);
   --chatBox-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   --user-name: #f577b6;
   --model-name: #819cf6;
   --message-color: #e6e6e6;
+  --prompt-background: #272626;
 
   --md-bold: #ffbe82;
 }

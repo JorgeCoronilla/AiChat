@@ -1,0 +1,9 @@
+.switcher {
+  background-color: transparent;
+  border: none;
+  padding-inline: 10px;
+  margin: 0;
+  cursor: pointer;
+  color: var(--foreground);
+ 
+}
